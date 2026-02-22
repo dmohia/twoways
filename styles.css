@@ -70,6 +70,16 @@ header {
     text-transform: uppercase;
 }
 
+.nav-logo a {
+    display: block;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
 .brand-name {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 3px;
@@ -504,6 +514,13 @@ footer {
     margin-bottom: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 15px;
+    border-radius: 50%;
 }
 
 .footer-section a {
