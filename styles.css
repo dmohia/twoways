@@ -217,63 +217,67 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.6);
     border: none;
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
+    opacity: 0;
+}
+
+.product-carousel:hover .carousel-btn {
+    opacity: 1;
 }
 
 .carousel-btn:hover {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .carousel-prev {
-    left: 15px;
+    left: 10px;
 }
 
 .carousel-next {
-    right: 15px;
+    right: 10px;
 }
 
 .carousel-dots {
     position: absolute;
-    bottom: 20px;
+    bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 6px;
     z-index: 10;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .dot.active {
     background: white;
-    transform: scale(1.2);
 }
 
 .product-badge {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: white;
+    top: 12px;
+    left: 12px;
+    background-color: rgba(255, 255, 255, 0.85);
     color: #1a1a1a;
-    padding: 8px 14px;
+    padding: 5px 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
+    font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     z-index: 10;
 }
 
@@ -674,9 +678,10 @@ footer {
     }
 
     .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        opacity: 1;
     }
 }
 
@@ -704,11 +709,11 @@ footer {
     }
 
     .carousel-dots {
-        bottom: 15px;
+        bottom: 10px;
     }
 
     .dot {
-        width: 8px;
-        height: 8px;
+        width: 5px;
+        height: 5px;
     }
 }
