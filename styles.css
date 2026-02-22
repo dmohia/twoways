@@ -70,6 +70,11 @@ header {
     text-transform: uppercase;
 }
 
+.brand-name {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+}
+
 .nav-left a,
 .nav-right a {
     font-size: 14px;
