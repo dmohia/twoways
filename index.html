@@ -22,9 +22,8 @@
                     <h1>2WAYS</h1>
                 </div>
                 <div class="nav-right">
-                    <a href="#" class="icon">Search</a>
-                    <a href="#" class="icon">Account</a>
-                    <a href="#" class="icon cart-icon">Cart <span class="cart-count">0</span></a>
+                    <a href="#shop" class="icon">Shop</a>
+                    <a href="#about" class="icon">Contact</a>
                 </div>
             </div>
         </nav>
@@ -96,11 +95,16 @@
                         <h3 class="product-name">The Pearl Bikini</h3>
                         <p class="product-description">Reversible bikini with floral & striped design, gold ring detail</p>
                         <div class="product-pricing">
-                            <p class="price">Top: $35 USD</p>
-                            <p class="price">Bottom: $35 USD</p>
                             <p class="price-set">Complete Set: $70 USD</p>
+                            <p class="price">Or separately: Top $35 | Bottom $35</p>
                         </div>
-                        <button class="btn-add-cart" data-product="pearl-bikini">Add to Cart</button>
+                        <div class="buy-buttons">
+                            <a href="https://buy.stripe.com/test_3cIcN58dHajy4g0b4w7kc02" class="btn-buy-set">Buy Set - $70</a>
+                            <div class="buy-separate">
+                                <a href="https://buy.stripe.com/test_bJeaEXalP4Ze13060g7kc00" class="btn-buy-item">Top - $35</a>
+                                <a href="https://buy.stripe.com/test_28EbJ1dy177mcMw1tW7kc01" class="btn-buy-item">Bottom - $35</a>
+                            </div>
+                        </div>
                         <p class="swipe-hint">Swipe to see both sides</p>
                     </div>
                 </div>
@@ -167,30 +171,6 @@
         </div>
     </footer>
 
-    <!-- Cart Modal -->
-    <div id="cartModal" class="cart-modal">
-        <div class="cart-modal-content">
-            <div class="cart-modal-header">
-                <h2>Shopping Cart</h2>
-                <button class="close-cart">&times;</button>
-            </div>
-            <div class="cart-modal-body">
-                <div id="cartItems"></div>
-                <div class="cart-empty" style="display: none;">
-                    <p>Your cart is empty</p>
-                </div>
-            </div>
-            <div class="cart-modal-footer">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span id="cartTotal">$0.00 USD</span>
-                </div>
-                <button id="checkoutBtn" class="btn-checkout">Proceed to Checkout</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://js.stripe.com/v3/"></script>
     <script src="script.js"></script>
 </body>
 </html>
