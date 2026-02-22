@@ -62,10 +62,10 @@ header {
 }
 
 .nav-logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
     font-weight: 400;
-    letter-spacing: 6px;
+    letter-spacing: 8px;
     text-align: center;
     text-transform: uppercase;
 }
