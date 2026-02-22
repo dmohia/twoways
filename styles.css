@@ -321,6 +321,15 @@ header {
     margin-top: 15px;
 }
 
+.product-pricing .free-shipping {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #2a7d2a;
+    margin-top: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
 .swipe-hint {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
