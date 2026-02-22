@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2WAYS - Reversible Swimwear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
     <section class="hero">
         <div class="hero-content">
             <h2>Double the Style, Double the Fun</h2>
-            <p>Reversible swimwear designed for the modern woman</p>
+            <p class="hero-tagline">Flip it. Wear it again.</p>
             <a href="#shop" class="btn-primary">Shop Now</a>
         </div>
     </section>
@@ -44,72 +47,67 @@
     <!-- Featured Collection -->
     <section class="featured-collection" id="shop">
         <div class="container">
-            <h2 class="section-title">Reversible Bikinis</h2>
+            <h2 class="section-title">The Collection</h2>
             <p class="section-subtitle">Two looks in one • Premium quality • Made for comfort</p>
 
-            <div class="product-grid">
-                <!-- Product 1: Floral Bikini -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/IMG_4328.jpg" alt="Floral Reversible Bikini">
+            <div class="product-single">
+                <!-- The Pearl Bikini -->
+                <div class="product-card-large">
+                    <div class="product-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="images/IMG_4328.jpg" alt="The Pearl Bikini - View 1">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/IMG_4329.jpg" alt="The Pearl Bikini - View 2">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/IMG_4330.jpg" alt="The Pearl Bikini - View 3">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/IMG_4331.jpg" alt="The Pearl Bikini - View 4">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/IMG_4332.jpg" alt="The Pearl Bikini - View 5">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/IMG_4333.jpg" alt="The Pearl Bikini - View 6">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/IMG_4336.jpg" alt="The Pearl Bikini - View 7">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn carousel-prev" aria-label="Previous image">&#10094;</button>
+                        <button class="carousel-btn carousel-next" aria-label="Next image">&#10095;</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
+                            <span class="dot" data-index="4"></span>
+                            <span class="dot" data-index="5"></span>
+                            <span class="dot" data-index="6"></span>
+                        </div>
                         <div class="product-badge">Reversible</div>
                     </div>
-                    <div class="product-info">
-                        <h3>Floral Dream Bikini</h3>
-                        <p class="product-description">White floral print with gold ring detail</p>
+                    <div class="product-info-large">
+                        <h3 class="product-name">The Pearl Bikini</h3>
+                        <p class="product-description">Reversible bikini with floral & striped design, gold ring detail</p>
                         <div class="product-pricing">
                             <p class="price">Top: $35 USD</p>
                             <p class="price">Bottom: $35 USD</p>
-                            <p class="price-set">Set: $70 USD</p>
+                            <p class="price-set">Complete Set: $70 USD</p>
                         </div>
-                        <button class="btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Product 2: Striped Bikini -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/IMG_4329.jpg" alt="Striped Reversible Bikini">
-                        <div class="product-badge">Reversible</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Ocean Stripes Bikini</h3>
-                        <p class="product-description">Blue & white stripes with gold ring detail</p>
-                        <div class="product-pricing">
-                            <p class="price">Top: $35 USD</p>
-                            <p class="price">Bottom: $35 USD</p>
-                            <p class="price-set">Set: $70 USD</p>
-                        </div>
-                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-add-cart" data-product="pearl-bikini">Add to Cart</button>
+                        <p class="swipe-hint">Swipe to see both sides</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2 class="section-title">Your New Favorite Swimwear</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/IMG_4330.jpg" alt="Bikini Detail">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/IMG_4331.jpg" alt="Bikini Beach">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/IMG_4332.jpg" alt="Bikini Back View">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/IMG_4333.jpg" alt="Bikini Front">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/IMG_4336.jpg" alt="Bikini Detail Close">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Why 2WAYS Section -->
     <section class="why-section" id="about">
@@ -142,7 +140,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>2WAYS</h4>
-                    <p>Reversible swimwear for the modern woman.</p>
+                    <p>Flip it. Wear it again.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Shop</h4>

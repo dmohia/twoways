@@ -159,9 +159,121 @@ async function checkout() {
     // stripe.redirectToCheckout({ sessionId: session.id });
 }
 
+// Carousel functionality
+function initCarousel() {
+    const carousel = document.querySelector('.product-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+
+        currentIndex = index;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    // Button navigation
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    // Dot navigation
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            goToSlide(parseInt(dot.dataset.index));
+        });
+    });
+
+    // Touch/Swipe support
+    const container = carousel.querySelector('.carousel-container');
+
+    container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+
+    container.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        currentTranslate = prevTranslate + diff;
+    });
+
+    container.addEventListener('touchend', (e) => {
+        isDragging = false;
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                goToSlide(currentIndex - 1);
+            } else {
+                goToSlide(currentIndex + 1);
+            }
+        }
+        prevTranslate = currentIndex * -100;
+    });
+
+    // Mouse drag support for desktop
+    container.addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+        isDragging = true;
+        container.style.cursor = 'grabbing';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+    });
+
+    container.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        container.style.cursor = 'grab';
+        const diff = e.clientX - startX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                goToSlide(currentIndex - 1);
+            } else {
+                goToSlide(currentIndex + 1);
+            }
+        }
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    });
+
+    // Set initial cursor
+    container.style.cursor = 'grab';
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+    });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
+    initCarousel();
 
     // Cart icon click handler
     document.querySelector('.cart-icon')?.addEventListener('click', function(e) {
@@ -182,15 +294,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Checkout button
     document.getElementById('checkoutBtn')?.addEventListener('click', checkout);
 
-    // Add to cart buttons - Updated to handle different product types
-    const productCards = document.querySelectorAll('.product-card');
+    // Add to cart button for The Pearl Bikini
+    const productCard = document.querySelector('.product-card-large');
+    if (productCard) {
+        const productName = productCard.querySelector('.product-name').textContent;
+        const addToCartBtn = productCard.querySelector('.btn-add-cart');
 
-    productCards.forEach((card) => {
-        const productName = card.querySelector('h3').textContent;
-        const addToCartBtn = card.querySelector('.btn-add-cart');
-
-        // Replace the single button with three buttons for Top, Bottom, and Set
-        const pricing = card.querySelector('.product-pricing');
         const topPrice = 35;
         const bottomPrice = 35;
         const setPrice = 70;
@@ -203,15 +312,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
 
-        // Add event listeners to new buttons
-        card.querySelectorAll('.btn-add-cart-item').forEach(btn => {
+        productCard.querySelectorAll('.btn-add-cart-item').forEach(btn => {
             btn.addEventListener('click', function() {
                 const type = this.dataset.type;
                 const price = parseFloat(this.dataset.price);
                 addToCart(productName, price, type);
             });
         });
-    });
+    }
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
