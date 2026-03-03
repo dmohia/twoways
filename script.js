@@ -94,9 +94,28 @@ function initCarousel() {
     });
 }
 
+// Cookie consent functionality
+function initCookieConsent() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+
+    if (!banner || !acceptBtn) return;
+
+    // Check if user already accepted cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+        banner.classList.add('show');
+    }
+
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        banner.classList.remove('show');
+    });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     initCarousel();
+    initCookieConsent();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
